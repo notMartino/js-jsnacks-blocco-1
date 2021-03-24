@@ -8,11 +8,46 @@
     </head>
     <body>
 
+        <button id="newStudentBtn">Nuovo Studente</button>
+
         <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            body{
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+            }
+
+            #newStudentBtn{
+                margin: auto;
+                background-color: gold;
+                color:darkviolet;
+                font-size: 30px;
+                border: 2px solid darkviolet;
+                border-radius: 5px;
+                height: 100px;
+                width: 200px;
+                font-weight: bolder;
+                cursor: pointer;
+                text-shadow: 1px 1px 1px black, 1px -1px 1px black , -1px 1px 1px black, -1px -1px 1px black;
+                box-shadow: 0 0 10px 3px darkviolet;
+                outline: none;
+                transition: transform 500ms, color 500ms, background-color 500ms, box-shadow 500ms, border-color 500ms;
+            }
+            #newStudentBtn:hover{
+                transform: scale(1.05);
+                color: gold;
+                background-color: darkviolet;
+                box-shadow: 0 0 20px 20px gold;
+                border-color: black;
+            }
             #rosso{
                 color: red;
             }
-
             #verde{
                 color: green;
             }
@@ -39,23 +74,23 @@
             // -------------------------------------------------------------
             // ES-2 Lunghezza array corto che diventa uguale ad array lungo
 
-            var num1 = [1, 2, 10];
-            var num2 = [1, 2, 10, 17, 23 , 40];
-            console.log(num1);
-            console.log(num2);
+            // var num1 = [1, 2, 10];
+            // var num2 = [1, 2, 10, 17, 23 , 40];
+            // console.log(num1);
+            // console.log(num2);
 
-            console.log('Array1 ha: ' + num1.length + ' elementi');
-            console.log('Array2 ha: ' + num2.length + ' elementi');
+            // console.log('Array1 ha: ' + num1.length + ' elementi');
+            // console.log('Array2 ha: ' + num2.length + ' elementi');
 
-            while(num1.length < num2.length){
-                num1.push(parseInt(prompt('Inserici un numero nel 1° array: ')));
-            }
-            while(num2.length < num1.length){
-                num2.push(parseInt(prompt('Inserici un numero nel 2° array: ')));
-            }
+            // while(num1.length < num2.length){
+            //     num1.push(parseInt(prompt('Inserici un numero nel 1° array: ')));
+            // }
+            // while(num2.length < num1.length){
+            //     num2.push(parseInt(prompt('Inserici un numero nel 2° array: ')));
+            // }
 
-            console.log(num1, num2);
-            console.log('Entrambe gli array hanno lunghezza: ' + num1.length);
+            // console.log(num1, num2);
+            // console.log('Entrambe gli array hanno lunghezza: ' + num1.length);
 
 
             // -------------------------------------------------------------
@@ -99,6 +134,88 @@
             //     }
             // }
 
+            // -------------------------------------------------------------
+            // ES-5 Utilizzo Objects/Array letterali - Registro studenti
+            function es1() {
+                console.log('ES. 1');
+                var student0 = {
+                    'firstName': 'Martino',
+                    'lastName': 'Scalvini',
+                    'age': 23
+                };
+                for(var key in student0){
+                    console.log(key + ':', student0[key]);
+                }
+            }
+
+            function es2() {
+                console.log(' ');
+                console.log('ES. 2');
+                var arrStud = [
+                    {
+                        'firstName': 'Martino',
+                        'lastName': 'Scalvini',
+                        'age': 23
+                    },
+                    {
+                        'firstName': 'Antonio',
+                        'lastName': 'Trepiotte',
+                        'age': 30
+                    },
+                    {
+                        'firstName': 'Adele',
+                        'lastName': 'Cirrosella',
+                        'age': 42
+                    }
+                ];
+
+                for (let i = 0; i < arrStud.length; i++) {
+                    console.log('STUDENT ' + i);
+                    console.log('First name: ' + arrStud[i].firstName);
+                    console.log('Last name: ' + arrStud[i].lastName);
+                }
+
+                return arrStud;
+            }
+
+            function es3(arrStudents) {
+                console.log(' ');
+                
+                var student = {
+                    'firstName': prompt('First name: '),
+                    'lastName': prompt('Last name: '),
+                    'age': parseInt(prompt('Age: '))
+                };
+                arrStudents[arrStudents.length] = student;
+
+                console.log('STUDENT ' + (arrStudents.length - 1) + ' added!');
+
+                console.log('First name: ' + arrStudents[arrStudents.length - 1].firstName);
+                console.log('Last name: ' + arrStudents[arrStudents.length - 1].lastName);
+                console.log('Age: ' + arrStudents[arrStudents.length - 1].age);
+
+                console.log(' ');
+                console.log('Lista Studenti');
+                for (let i = 0; i < arrStudents.length; i++) {
+                    console.log('STUDENT ' + i);
+                    console.log('First name: ' + arrStudents[i].firstName);
+                    console.log('Last name: ' + arrStudents[i].lastName);
+                    console.log('Age: ' + arrStudents[i].age);
+                }
+            }
+
+            function init(){
+                es1();
+                var arrStudents = es2();
+
+                console.log(' ');
+                console.log('ES. 3');
+                newStudentBtn.addEventListener('click', function(){
+                    es3(arrStudents);
+                });
+            }
+
+            init();
         </script>
     </body>
 </html>
