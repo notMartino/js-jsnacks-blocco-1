@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+#newStudentBtn{
+    margin: auto;
+    background-color: gold;
+    color:darkviolet;
+    font-size: 30px;
+    border: 2px solid darkviolet;
+    border-radius: 5px;
+    height: 100px;
+    width: 200px;
+    font-weight: bolder;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px black, 1px -1px 1px black , -1px 1px 1px black, -1px -1px 1px black;
+    box-shadow: 0 0 10px 3px darkviolet;
+    outline: none;
+    transition: transform 500ms, color 500ms, background-color 500ms, box-shadow 500ms, border-color 500ms;
+}
+#newStudentBtn:hover{
+    transform: scale(1.05);
+    color: gold;
+    background-color: darkviolet;
+    box-shadow: 0 0 20px 20px gold;
+    border-color: black;
+}
+#rosso{
+    color: red;
+}
+#verde{
+    color: green;
+}
